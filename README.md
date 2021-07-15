@@ -8,7 +8,7 @@ Este é um projeto do tipo Spring Boot App:
 
 * Para consumir a API no Postman importe o arquivo HDI.postman_collection.json localizando na raiz do projeto.
 
-* Para executar os teste unitarios utilize maven test
+* Para executar os teste unitarios utilize JUnit ou maven test
 
 ## Tecnologias:
 - IDE Spring Tool Suite STS 3.9.4, 
