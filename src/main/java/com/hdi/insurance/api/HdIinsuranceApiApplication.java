@@ -12,9 +12,9 @@ public class HdIinsuranceApiApplication {
 	
 	@Bean
 	public WebClient webClient(WebClient.Builder builder){
-		String baseUrl = "https://607732991ed0ae0017d6a9b0.mockapi.io/insurance/v1";
+		
 		return builder
-				.baseUrl(baseUrl)
+				.baseUrl("https://607732991ed0ae0017d6a9b0.mockapi.io/insurance/v1")
 				.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 				.build();
 	}

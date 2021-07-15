@@ -33,6 +33,11 @@ public class BrokerController {
 	public ResponseEntity<Broker> getByDocument(@PathVariable String document){
 		
 		Broker broker = this.brokerService.findByDocument(document);
+		
+		if (broker == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
 		return ResponseEntity.ok(broker);
 	}
 	
