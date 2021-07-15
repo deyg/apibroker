@@ -2,10 +2,12 @@ package com.hdi.insurance.api.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.hdi.insurance.api.exception.BusinessException;
+import com.hdi.insurance.api.exception.ResourceNotFoundException;
 import com.hdi.insurance.api.model.Broker;
 import com.hdi.insurance.api.model.BrokerDetails;
 
@@ -26,6 +28,9 @@ public class BrokerService {
 				.method(HttpMethod.GET)
 				.uri("/broker/{document}", document)
 				.retrieve()
+				.onStatus(HttpStatus::is4xxClientError, response -> {	                 
+	                 return Mono.error(new ResourceNotFoundException("broker not found"));
+	             })
 				.bodyToMono(Broker.class);	
 				
 		Broker broker = monoBrokerMaster.block();
