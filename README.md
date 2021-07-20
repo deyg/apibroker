@@ -13,7 +13,7 @@ Este é um projeto do tipo Spring Boot App:
 * Para gravar dados no MongoDB realize um Post usando o Postman
 
 ## Tecnologias:
-- IDE Spring Tool Suite STS 3.9.4, 
+- IDE Spring Tool Suite STS 4, 
 - Spring Boot, 
 - Spring Web, 
 - Lombok, 
