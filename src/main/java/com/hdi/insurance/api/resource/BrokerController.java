@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,6 +48,23 @@ public class BrokerController {
 	public void update(@PathVariable String document, @RequestBody Boolean status){		
 		
 		this.brokerService.updateStatus(document, status);		
+		
+	}
+	
+	@GetMapping("/id/{id}")
+	@ApiOperation(value="Retorna um Broker do banco de dados")
+	public ResponseEntity<Broker> getById(@PathVariable String id){
+		
+		Broker broker = this.brokerService.findById(id);		
+		return ResponseEntity.ok(broker);
+	}
+	
+	@PostMapping
+	@ApiOperation(value="Adiciona um broker no banco de dados")
+	public ResponseEntity<Broker> create(@RequestBody Broker broker) {
+		
+		broker = this.brokerService.create(broker);
+		return ResponseEntity.ok(broker);		
 		
 	}
 

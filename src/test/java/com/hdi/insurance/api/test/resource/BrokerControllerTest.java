@@ -41,7 +41,7 @@ public class BrokerControllerTest {
 	public void shouldReturnSuccess_WhenFindBroker() {
 
 		when(this.brokerService.findByDocument("52225508003"))
-			.thenReturn(new Broker("Drummont", "52225508003", "00001", "2020-05-16", true, 0.9F));
+			.thenReturn(new Broker("id", "Drummont", "52225508003", "00001", "2020-05-16", true, 0.9F));
 			
 		given()
 			.accept(ContentType.JSON)

@@ -77,6 +77,57 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "localhost:8080/insurance/v1/broker",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \r\n    \"name\": \"Denilson Barreto de Souza\",\r\n    \"document\": \"52725508003\",\r\n    \"code\": \"000010\",\r\n    \"createDate\": \"2020-05-16\",\r\n    \"active\": true,\r\n    \"commissionRate\": 0.8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/insurance/v1/broker",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"insurance",
+						"v1",
+						"broker"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/insurance/v1/broker/id/60f646c7a003d65c5d10e5b2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/insurance/v1/broker/id/60f646c7a003d65c5d10e5b2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"insurance",
+						"v1",
+						"broker",
+						"id",
+						"60f646c7a003d65c5d10e5b2"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

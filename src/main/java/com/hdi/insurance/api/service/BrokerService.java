@@ -10,6 +10,7 @@ import com.hdi.insurance.api.exception.BusinessException;
 import com.hdi.insurance.api.exception.ResourceNotFoundException;
 import com.hdi.insurance.api.model.Broker;
 import com.hdi.insurance.api.model.BrokerDetails;
+import com.hdi.insurance.api.repository.BrokerRepository;
 
 import reactor.core.publisher.Mono;
 
@@ -21,6 +22,9 @@ public class BrokerService {
 	
 	@Autowired 
 	private WebClient webClienteBrokerDetails;
+	
+	@Autowired
+	private BrokerRepository brokerRepository;
 	
 	public Broker findByDocument(String document){
 		
@@ -79,5 +83,14 @@ public class BrokerService {
 	        .bodyToMono(Broker.class).block();
 	}
 	
+	public Broker findById(String id) {
+		return this.brokerRepository
+				.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Broker not exist."));
+	}
+	
+	public Broker create(Broker broker) {
+		return this.brokerRepository.save(broker);
+	}
 
 }
