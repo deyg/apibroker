@@ -10,6 +10,8 @@ Este é um projeto do tipo Spring Boot App:
 
 * Para executar os teste unitarios utilize JUnit ou maven test
 
+* Para gravar dados no MongoDB realize um Post usando o Postman
+
 ## Tecnologias:
 - IDE Spring Tool Suite STS 3.9.4, 
 - Spring Boot, 
@@ -20,6 +22,8 @@ Este é um projeto do tipo Spring Boot App:
 - DevTools, 
 - SpringMockMVC, 
 - Swagger
+- MongoDB
 
 Instalar Lombok na IDE - https://projectlombok.org/setup/eclipse 
 Menu Help/Install new software usar https://projectlombok.org/p2
+Caso necessario instale o MongoDB community
