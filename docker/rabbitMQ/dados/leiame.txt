@@ -1,0 +1,1 @@
+a pasta dados foi criada para que os dados de trabalho do RabbitMQ permaneça mesmo apos a finalização do container Docker.

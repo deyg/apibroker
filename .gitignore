@@ -32,5 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 
-/docker/rabbitMQ/dados/
+/docker/rabbitMQ/dados/mnesia/
+/docker/rabbitMQ/dados/.erlang.cookie
 /application/.vs/
