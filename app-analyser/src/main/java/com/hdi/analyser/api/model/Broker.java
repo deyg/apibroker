@@ -1,4 +1,4 @@
-package com.hdi.insurance.api.model;
+package com.hdi.analyser.api.model;
 
 import java.io.Serializable;
 
