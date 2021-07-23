@@ -85,7 +85,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{    \r\n    \"name\": \"Denilson Barreto de Souza\",\r\n    \"document\": \"52725508003\",\r\n    \"code\": \"000010\",\r\n    \"createDate\": \"2020-05-16\",\r\n    \"active\": true,\r\n    \"commissionRate\": 0.8\r\n}",
+					"raw": "{    \r\n    \"name\": \"Denilson Barreto de Souza\",\r\n    \"document\": \"52725508003\",\r\n    \"code\": \"000010\",\r\n    \"createDate\": \"2020-05-16\",\r\n    \"active\": true,\r\n    \"commissionRate\": 0.5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -124,6 +124,24 @@
 						"broker",
 						"id",
 						"60f646c7a003d65c5d10e5b2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/analyser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/analyser",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"analyser"
 					]
 				}
 			},
