@@ -1,5 +1,7 @@
 package com.hdi.insurance.api.model;
 
+import java.io.Serializable;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Document
-public class Broker {
+public class Broker implements Serializable {
 	
 	@Id
 	private String id;

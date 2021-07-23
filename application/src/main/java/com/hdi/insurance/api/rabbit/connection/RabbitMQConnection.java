@@ -1,4 +1,4 @@
-package com.hdi.insurance.api.connection;
+package com.hdi.insurance.api.rabbit.connection;
 
 import javax.annotation.PostConstruct;
 
@@ -8,11 +8,10 @@ import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.stereotype.Component;
 
+import com.hdi.insurance.api.constants.Constants;
+
 @Component
 public class RabbitMQConnection {
-
-	private static final String EXCHANGE_NAME = "hdi.amq.direct";
-	private static final String BROKER_QUEUE_NAME = "hdi.queue.broker";
 	
 	private AmqpAdmin amqpAdmin;
 	
@@ -27,7 +26,7 @@ public class RabbitMQConnection {
 	}
 	
 	private DirectExchange createDirectExchange() {
-		return new DirectExchange(EXCHANGE_NAME);
+		return new DirectExchange(Constants.RABBITMQ_EXCHANGE_NAME);
 	}
 	
 	private Binding createBinding(Queue queue, DirectExchange exchange) {
@@ -37,7 +36,7 @@ public class RabbitMQConnection {
 	@PostConstruct
 	private void confiRabbitMQ() {
 		
-		Queue queueBroker = this.createQueue(BROKER_QUEUE_NAME);
+		Queue queueBroker = this.createQueue(Constants.RABBITMQ_BROKER_QUEUE_NAME);
 		DirectExchange directExchange = this.createDirectExchange();
 		Binding bindingBroker = this.createBinding(queueBroker, directExchange);
 		

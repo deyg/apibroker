@@ -6,10 +6,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.hdi.insurance.api.constants.Constants;
 import com.hdi.insurance.api.exception.BusinessException;
 import com.hdi.insurance.api.exception.ResourceNotFoundException;
 import com.hdi.insurance.api.model.Broker;
 import com.hdi.insurance.api.model.BrokerDetails;
+import com.hdi.insurance.api.rabbit.producer.RabbitProducer;
 import com.hdi.insurance.api.repository.BrokerRepository;
 
 import reactor.core.publisher.Mono;
@@ -25,6 +27,10 @@ public class BrokerService {
 	
 	@Autowired
 	private BrokerRepository brokerRepository;
+	
+	@Autowired
+	private RabbitProducer brokerProducer;
+	
 	
 	public Broker findByDocument(String document){
 		
@@ -90,7 +96,9 @@ public class BrokerService {
 	}
 	
 	public Broker create(Broker broker) {
-		return this.brokerRepository.save(broker);
+		broker = this.brokerRepository.save(broker);
+		brokerProducer.sendMessage(Constants.RABBITMQ_BROKER_QUEUE_NAME, broker);
+		return broker;
 	}
 
 }
