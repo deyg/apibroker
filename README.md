@@ -3,4 +3,4 @@
 * git clone -b BrokerAnalyserInRabbitMQConsumer https://github.com/deyg/apibroker.git
 
 
-![Alt text](/images/rabbitmq.png)
+![Alt text](/images/arquitetura.png)
